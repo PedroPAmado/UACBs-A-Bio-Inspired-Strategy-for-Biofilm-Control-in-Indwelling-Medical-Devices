@@ -1,0 +1,25 @@
+Numberparticle=max(particleInfo(:,6));
+
+for ii=1:Numberparticle
+    b=find(ii==particleInfo(:,6));
+    
+    for iii=1:length(b)
+    
+       particleposition_changes(iii,:)=particleInfo(b(iii),:);
+ 
+    end 
+     particlepositionfinale_changes{ii}=particleposition_changes;
+ 
+    clear b particleposition_changes
+    
+end
+
+%%
+figure
+for i=1:size( particlepositionfinale_changes,2)
+    a= particlepositionfinale_changes{i};
+    plot (a(:,2),a(:,3));
+    hold on
+    clear a
+end
+set(gca,'YDir','reverse')
